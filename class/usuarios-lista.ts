@@ -8,7 +8,6 @@ export class UsuariosLista {
 
     public agregar( usuario: Usuario ) {
         this.lista.push( usuario );
-        console.log(this.lista);
         return usuario;
     }
 
@@ -16,15 +15,13 @@ export class UsuariosLista {
         for( let usuario of this.lista ) {
             if( usuario.id === id ) {
                 usuario.nombre = nombre;
-                console.log('Actualizando usuraio');
-                console.log(this.lista);
                 break;
             }
         }
     }
 
     public getLista() {
-        return this.lista;
+        return this.lista.filter( usuario => usuario.nombre !== '' );
     }
 
     public getUsuario( id: string ) {
@@ -39,7 +36,6 @@ export class UsuariosLista {
         const tempUsuario = this.getUsuario( id );
 
         this.lista = this.lista.filter(usuario => usuario.id !== id);
-        console.log(this.lista);
         return tempUsuario;
     }
 }

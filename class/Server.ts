@@ -31,10 +31,10 @@ export default class Server {
     private listenSocket(){
         this.io.on('connection', cliente =>{
             
-            console.log(cliente.id);
             socket.setUsuario( cliente, this.io );
-            socket.conectarCliente( cliente );
-            socket.desconectar( cliente );
+            socket.getUsuarios( cliente, this.io );
+            socket.conectarCliente( cliente, this.io );
+            socket.desconectar( cliente, this.io );
             socket.mensaje( cliente, this.io );
         });
     }
